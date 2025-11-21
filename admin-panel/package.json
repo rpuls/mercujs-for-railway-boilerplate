@@ -4,9 +4,10 @@
   "scripts": {
     "generate:static": "node ./scripts/generate-currencies.js && prettier --write ./src/lib/currencies.ts",
     "dev": "vite",
-    "build": "tsup && node ./scripts/generate-types.js",
+    "build": "tsup && vite build && node ./scripts/generate-types.js",
     "build:preview": "vite build",
     "preview": "vite preview",
+    "start": "vite preview --port 5173",
     "test": "vitest --run",
     "i18n:validate": "node ./scripts/i18n/validate-translation.js",
     "i18n:schema": "node ./scripts/i18n/generate-schema.js",
