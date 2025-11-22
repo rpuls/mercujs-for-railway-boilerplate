@@ -14,6 +14,7 @@ export default defineConfig(({ mode }) => {
   const STOREFRONT_URL =
     env.VITE_MEDUSA_STOREFRONT_URL || "http://localhost:8000";
   const B2B_PANEL = env.VITE_MEDUSA_B2B_PANEL || "false";
+  const PORT = parseInt(env.PORT || env.VITE_PORT || "5173", 10);
 
   /**
    * Add this to your .env file to specify the project to load admin extensions from.
@@ -50,7 +51,9 @@ export default defineConfig(({ mode }) => {
       __B2B_PANEL__: JSON.stringify(B2B_PANEL),
     },
     server: {
-      open: true,
+      host: true,
+      port: PORT,
+      open: false,
     },
   };
 });
