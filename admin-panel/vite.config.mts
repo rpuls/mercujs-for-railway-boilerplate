@@ -15,6 +15,7 @@ export default defineConfig(({ mode }) => {
     env.VITE_MEDUSA_STOREFRONT_URL || "http://localhost:8000";
   const B2B_PANEL = env.VITE_MEDUSA_B2B_PANEL || "false";
   const PORT = parseInt(env.PORT || env.VITE_PORT || "5173", 10);
+  const PUBLIC_BASE_URL = env.VITE_PUBLIC_BASE_URL || "";
 
   /**
    * Add this to your .env file to specify the project to load admin extensions from.
@@ -54,6 +55,7 @@ export default defineConfig(({ mode }) => {
       host: true,
       port: PORT,
       open: false,
+      allowedHosts: PUBLIC_BASE_URL ? [PUBLIC_BASE_URL.replace('https://', '').replace('http://', '').split('/')[0]] : [],
     },
   };
 });
